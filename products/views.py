@@ -13,4 +13,4 @@ def add_order(request, number):
 
 def product_detail(request, number):
     product = Product.objects.filter(product_number=number)
-    return HttpResponse("列表{}".format(number))
+    return HttpResponse("產品{}的詳細資料".format(number))
