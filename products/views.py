@@ -1,15 +1,19 @@
 from django.shortcuts import render, render_to_response
 from django.http import HttpRequest, HttpResponse
 from products.models import Product, ProductImages, Order
+from django.template import Context
 
 # Create your views here.
 def index(request):
-    product = Product.objects.all()
-    #images = ProductImages.objects.all().filter(product_id=product.)
-    return render(request, 'index.html', {'product': product})
-
+    products = Product.objects.all()
+    images = {}
+    for i in products:
+        image = ProductImages.objects.filter(product_id=i.id).first()
+        images[image.product_id]=str(image.image)
+    return render_to_response('index.html', {'products': products, 'images':images})
+    # return HttpResponse(images)
 def add_order(request, number):
-    order = Order.objects.create()
+    # order = Order.objects.create()
     return HttpResponse("添加{}".format(number))
 
 def product_detail(request, number):

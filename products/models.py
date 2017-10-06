@@ -7,6 +7,7 @@ class Product(models.Model):
     name = models.CharField(max_length=30)
     firm = models.CharField(max_length=30)
     price = models.PositiveIntegerField()
+    product_content = models.TextField()
     youtube = models.URLField(null=True, blank=True)
 
     def __str__(self):

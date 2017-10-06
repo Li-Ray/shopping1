@@ -6,22 +6,22 @@
                 <div id="link1" class="col-12 my-4">
                     <h3>Item</h3>
                 </div>
-                {% for product in product %}
+                {% for product in products %}
                 <div class="col-xl-3 col-md-4 col-sm-6">
                     <div class="card card-default mb-4">
 
                         <div class="card-img-top wow fadeIn sos" style="visibility: visible; animation-name: fadeIn;">
-                           {% for images in images %}
-                                <img src="../img/{{ images.image }}" class="mx-auto img-fluid swap1">
-
-                                <img src="../img/{{ images.image }}" class="mx-auto img-fluid swap2">
+                            {% for k,v in images.items %}
+                                {% if product.id == k %}
+                                <img src="../{{ v }}" class="mx-auto img-fluid swap1">
+                                {% endif %}
                             {% endfor %}
                         </div>
                         <div class="card-body py-4">
                             <h3 class="card-title">{{ product.name }}</h3>
                             <h4>${{ product.price }}</h4>
                             <p class="card-text small">{{ product.note }}</p>
-                            <a href="#" class="btn btn-success float-right">BUY!!</a>
+                            <a href="{% url 'product_detail' product.product_number %}" class="btn btn-success float-right">BUY!!</a>
                         </div>
 
                     </div>
