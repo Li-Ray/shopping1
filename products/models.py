@@ -3,11 +3,11 @@ from django.db import models
 # Create your models here.
 
 class Product(models.Model):
-    product_number=models.CharField(max_length=30)
-    name = models.CharField(max_length=30)
-    firm = models.CharField(max_length=30)
-    price = models.PositiveIntegerField()
-    product_content = models.TextField()
+    product_number=models.CharField("產品編號", max_length=30)
+    name = models.CharField("產品名", max_length=30)
+    firm = models.CharField("公司", max_length=30)
+    price = models.PositiveIntegerField("價格")
+    product_content = models.TextField("內容")
     youtube = models.URLField(null=True, blank=True)
 
     def __str__(self):
@@ -15,6 +15,7 @@ class Product(models.Model):
 
     class Meta:
         verbose_name = '產品'
+        verbose_name_plural = verbose_name
 
 class ProductImages(models.Model):
     product = models.ForeignKey(Product)
@@ -25,6 +26,7 @@ class ProductImages(models.Model):
 
     class Meta:
         verbose_name = '產品圖'
+        verbose_name_plural = verbose_name
 
 class Order(models.Model):
     order_number=models.CharField(max_length=30)
@@ -40,10 +42,9 @@ class Order(models.Model):
     state = models.CharField(max_length=30)
     shiped_time = models.DateTimeField(auto_now=True)
 
-
-
     def __str__(self):
         return self.buyer
 
     class Meta:
         verbose_name = '訂單'
+        verbose_name_plural = verbose_name
