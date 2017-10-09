@@ -18,8 +18,8 @@ class Product(models.Model):
         verbose_name_plural = verbose_name
 
 class ProductImages(models.Model):
-    product = models.ForeignKey(Product)
-    image = models.ImageField(upload_to='static/images')
+    product = models.ForeignKey(Product, verbose_name="產品名")
+    image = models.ImageField(upload_to='static/images', verbose_name="產品圖")
 
     def __str__(self):
         return self.product.name
@@ -29,15 +29,15 @@ class ProductImages(models.Model):
         verbose_name_plural = verbose_name
 
 class Order(models.Model):
-    order_number=models.CharField(max_length=30)
-    buyer = models.CharField(max_length=30)
-    cellphone = models.CharField(max_length=20)
-    product = models.ForeignKey(Product)
-    price = models.PositiveIntegerField()
-    value = models.PositiveIntegerField()
-    amount = models.PositiveIntegerField()
+    order_number=models.CharField(max_length=30, verbose_name="訂單號碼")
+    buyer = models.CharField(max_length=30, verbose_name="訂購人")
+    cellphone = models.CharField(max_length=20, verbose_name="電話")
+    product = models.ForeignKey(Product, verbose_name="產品")
+    price = models.PositiveIntegerField(verbose_name="單價")
+    value = models.PositiveIntegerField(verbose_name="總價")
+    amount = models.PositiveIntegerField(verbose_name="數量")
     ip = models.CharField(max_length=30)
-    note = models.TextField(null=True, blank=True  )
+    note = models.TextField(null=True, blank=True, verbose_name="備註")
     buyed_time = models.DateTimeField(auto_now_add=True)
     state = models.CharField(max_length=30)
     shiped_time = models.DateTimeField(auto_now=True)
@@ -48,3 +48,12 @@ class Order(models.Model):
     class Meta:
         verbose_name = '訂單'
         verbose_name_plural = verbose_name
+
+class SlideShow(models.Model):
+    event＿name = models.CharField(max_length=30)
+    PageChoices = (('1', 'First Slide'),('2', 'Second Slide'),('3', 'Third Slide'))
+    page = models.CharField(max_length=1,choices=PageChoices,default=1)
+    image = models.ImageField(upload_to='static/images/slideshow')
+
+    def __str__(self):
+        return self.event＿name
