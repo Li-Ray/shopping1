@@ -1,22 +1,24 @@
-<nav class="navbar sticky-top navbar-expand-md navbar-light bg-light">
+<nav id="mainNav" class="navbar sticky-top navbar-expand-md navbar-light bg-light">
     <div class="container-fluid">
-        <h1 style="font-family: 'Rock Salt';"><a class="navbar-brand font-weight-bold text-center" href="{% url 'index' %}">X spacce</a></h1>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+        <h1 style="font-family: 'Rock Salt';"><a class="navbar-brand font-weight-bold" href="{% url 'index' %}">X spacce</a></h1>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarMenu" aria-controls="navbarMenu" aria-expanded="true" aria-label="Toggle navigation">
+          Menu
+            <i class="fa fa-bars"></i>
         </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
+        <div class="collapse navbar-collapse" id="navbarMenu">
             <ul class="navbar-nav ml-auto text-center">
-                <li class="nav-item active px-lg-4 px-md-2">
+                <li class="nav-item active px-md-2">
                     <a class="nav-link text-uppercase text-expanded" href="{% url 'index' %}">Home</a>
                 </li>
-                <li class="nav-item px-lg-4 px-md-2">
-                    <a class="nav-link text-uppercase text-expanded" href="#item">Item</a>
-                </li>
-                <li class="nav-item px-lg-4 px-md-2">
-                    <a class="nav-link text-uppercase text-expanded" href="#item1">Item1</a>
-                </li>
-                <li class="nav-item px-lg-4 px-md-2">
-                    <a class="nav-link text-uppercase text-expanded" href="#item2">Item2</a>
+                <li class="nav-item dropdown px-md-2">
+                    <a class="nav-link dropdown-toggle disabled" id="dropdownLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Product
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownLink">
+                        <a class="dropdown-item text-center" href="#item">Item1</a>
+                        <a class="dropdown-item text-center" href="#item">Item2</a>
+                        <a class="dropdown-item text-center" href="#item">Item3</a>
+                    </div>
                 </li>
             </ul>
         </div>
