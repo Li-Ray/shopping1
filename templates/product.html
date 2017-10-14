@@ -4,7 +4,7 @@
 	 <div class="row justify-content-center">
 		 <div class="col-12 col-lg-10">
 			 <div class="jumbotron" style="background-color: #FFF">
-				 {% for product in product %}
+				 {% for product in products %}
                  <div class="page-header">
 					 <h1 class="text-center">
 						 {{ product.name }}限時特賣中
@@ -15,15 +15,16 @@
                      <img src="{{ images.image }}" style="width:100%">
                  {% endfor %}
 
-				 <div class="embed-responsive embed-responsive-16by9">
-					 <iframe class="embed-responsive-item" src="{{ product.youtube }}" allowfullscreen></iframe>
-				 </div>
+{#				 <div class="embed-responsive embed-responsive-16by9">#}
+{#					 <iframe class="embed-responsive-item" src="{{ product.youtube }}" allowfullscreen></iframe>#}
+{#				 </div>#}
 
 				 <br>
 				 <blockquote class="blockquote">
-					 <p class="">{{ product.product_content }}</p>
+{#					 <p class="">{{ product.product_content }}</p>#}
 				 </blockquote>
                 {% endfor %}
+                {% include 'order.html' %}
 			 </div>
 		 </div>
 	 </div>

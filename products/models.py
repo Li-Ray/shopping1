@@ -29,15 +29,18 @@ class ProductImages(models.Model):
         verbose_name_plural = verbose_name
 
 class Order(models.Model):
-    order_number=models.CharField(max_length=30, verbose_name="訂單號碼")
+    order_number=models.CharField(max_length=50, verbose_name="訂單號碼")
     buyer = models.CharField(max_length=30, verbose_name="訂購人")
     cellphone = models.CharField(max_length=20, verbose_name="電話")
     product = models.ForeignKey(Product, verbose_name="產品")
     price = models.PositiveIntegerField(verbose_name="單價")
-    value = models.PositiveIntegerField(verbose_name="總價")
-    amount = models.PositiveIntegerField(verbose_name="數量")
+    value = models.PositiveIntegerField(verbose_name="數量")
+    amount = models.PositiveIntegerField(verbose_name="總價")
+    email= models.EmailField()
+    address = models.CharField(max_length=200, verbose_name="付款方式")
+    payment_way = models.CharField(max_length=30, verbose_name="付款方式")
     ip = models.CharField(max_length=30)
-    note = models.TextField(null=True, blank=True, verbose_name="備註")
+    note = models.TextField(blank=True, verbose_name="備註")
     buyed_time = models.DateTimeField(auto_now_add=True)
     state = models.CharField(max_length=30)
     shiped_time = models.DateTimeField(auto_now=True)
