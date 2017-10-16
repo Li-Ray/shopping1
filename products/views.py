@@ -45,7 +45,7 @@ def add_order(request, number):
                 ip=request.META['REMOTE_ADDR'],
                 note=note,
             )
-            return HttpResponse("成功訂購")
+            return render(request, 'order_success.html')
     # except:
     #     return HttpResponse("訂購失敗，請重新訂購")
 

@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="row my-5">
+
+        <div class="col-sm-2 col-md-3"></div>
+        <div class="col-sm-8 col-md-6 alert alert-success" role="alert">
+            <strong>訂購成功!</strong> 您所訂購的商品將於3個工作天內寄出.
+            <a href="{% url 'index' %}" class="alert-link">
+                <button type="button" class="btn btn-success btn-sm pull-right mt-5">確認</button>
+            </a>
+        </div>
+
+    </div>
+{% endblock %}
+

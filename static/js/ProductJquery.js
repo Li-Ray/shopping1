@@ -10,7 +10,7 @@ $(function(){
     });
 
     $("#ProductMinus").on("click",function(){
-        Quantity -= 1
+        Quantity -= 1 ;
         if(Quantity<=1){Quantity = 1 ;}
         $("#values").val(Quantity);
         totalPrice = Price * Quantity;

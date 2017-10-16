@@ -37,14 +37,13 @@ class Order(models.Model):
     value = models.PositiveIntegerField(verbose_name="數量")
     amount = models.PositiveIntegerField(verbose_name="總價")
     email= models.EmailField()
-    address = models.CharField(max_length=200, verbose_name="付款方式")
+    address = models.CharField(max_length=200, verbose_name="地址")
     payment_way = models.CharField(max_length=30, verbose_name="付款方式")
     ip = models.CharField(max_length=30)
     note = models.TextField(blank=True, verbose_name="備註")
     buyed_time = models.DateTimeField(auto_now_add=True)
     state = models.CharField(max_length=30)
-    shiped_time = models.DateTimeField(auto_now=True)
-
+    shipped_time = models.DateTimeField(blank=True, null=True, verbose_name="出貨時間")
     def __str__(self):
         return self.buyer
 
