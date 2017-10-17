@@ -43,7 +43,8 @@ class Order(models.Model):
     note = models.TextField(blank=True, verbose_name="備註")
     buyed_time = models.DateTimeField(auto_now_add=True)
     state = models.CharField(max_length=30)
-    shipped_time = models.DateTimeField(blank=True, null=True, verbose_name="出貨時間")
+    shipped_time = models.DateTimeField(auto_now=True)
+
     def __str__(self):
         return self.buyer
 
