@@ -15,12 +15,12 @@
                 {% for product in products %}
                 <div class="form-inline justify-content-center">
 
-                    <div id="product_name" class="col-4 text-right">
+                    <div id="product_name" class="col-4 my-3 text-center">
                         <h4>{{ product.name }}</h4>
                     </div>
 
                     <div class="col-4 text-center">
-                        <div class="btn-group" role="group" aria-label="Basic example">
+                        <div class="btn-group my-3" role="group" aria-label="Basic example">
                             <button id="ProductMinus" type="button" class="btn btn-warning"><span class="icon-minus2" aria-hidden="true"></span></button>
 
                             <input id="values" type="text" value="1" name="values" size="4">
@@ -29,44 +29,44 @@
                         </div>
                     </div>
 
-                    <div class="col-4">
+                    <div class="col-4 my-3">
                         <h3 class="text-danger">NTD $<span name="price" id="price">{{ product.price }}</span></h3>
                     </div>
             {% endfor %}
                 </div>
                 <hr>
 
-                <h3>訂購人資訊</h3>
+                <h3 class="mt-4">訂購人資訊</h3>
 
                 <div class="form-group-inline">
-                    <label for="name" class="col-xs-2 col-md-2 form-control-label">訂購人：</label>
+                    <label for="name" class="col-3 col-lg-2 text-right">訂購人：</label>
 
-                    <input type="text" id="name" name="name" placeholder="請填寫訂購人姓名" class="col-xs-10 col-md-6" required>
+                    <input type="text" id="name" name="name" placeholder="請填寫訂購人姓名" class="col-7" required>
 
                 </div>
 
                 <div class="form-group-inline">
-                    <label for="cellphone" class="col-xs-2 col-md-2 form-control-label">連絡手機：</label>
+                    <label for="cellphone" class="col-3 col-lg-2 text-right">連絡手機：</label>
 
-                    <input type="text" id="cellphone" name="cellphone" placeholder="請輸入您的手機號碼" class="col-xs-10 col-md-6" required>
-
-                </div>
-
-                <div class="form-group-inline">
-                    <label for="email" class="col-xs-2  col-md-2">電子信箱：</label>
-
-                    <input type="email" id="email" name="email" placeholder="請填寫您常用的email以利查詢訂單狀態" class="col-xs-10 col-md-9" required>
+                    <input type="text" id="cellphone" name="cellphone" placeholder="請輸入您的手機號碼" class="col-7" required>
 
                 </div>
 
                 <div class="form-group-inline">
-                    <label for="address" class="col-xs-2 col-md-2">地址：</label>
-                    <input type="text" id="address" name="address" placeholder="請填寫您的詳細地址" class="col-xs-10 col-md-9" required>
+                    <label for="email" class="col-3 col-lg-2 text-right">電子信箱：</label>
+
+                    <input type="email" id="email" name="email" placeholder="請填寫您常用的email以利查詢訂單狀態" class="col-8 col-lg-9" required>
+
+                </div>
+
+                <div class="form-group-inline">
+                    <label for="address" class="col-3 col-lg-2 text-right">地址：</label>
+                    <input type="text" id="address" name="address" placeholder="請填寫您的詳細地址" class="col-8 col-lg-9" required>
                 </div>
 
                 <div class="form-inline">
 
-                    <div class="col-xs-2 col-md-2">
+                    <div class="col-3 col-lg-2 text-right">
                         付款方式：
                     </div>
 
@@ -80,26 +80,22 @@
 
                 </div>
 
-                <div class="form-group-inline">
-                    <label for="note" class="col-xs-2 col-md-2 align-top">備註：</label>
-                    <textarea id="note" name="note" placeholder=" 如備用電話、商品數量、收貨時間等，額外需求請留言" class="col-xs-10 col-md-9" rows="5"></textarea>
+                <div class="form-group-inline clearfix">
+                    <label for="note" class="col-3 col-lg-2 align-top text-right">備註：</label>
+
+                    <textarea id="note" name="note" placeholder=" 如備用電話、商品數量、收貨時間等，額外需求請留言" class="col-9 col-lg-10 float-right" rows="4"></textarea>
                 </div>
 
-                <div class="col-xs">
+                <div class="col-12 my-4">
                     <h4>匯款需知</h4>
                     <p>離島地區目前尚無貨到付款服務，在收到您的訂單後，我們的客服人員會主動撥電話與您確認訂單內容。確認後，請在到貨日三天前(不含假日)完成匯款至下列帳號並來電告知服務人員。其餘地區均可貨到付款。<br>
                         XXXX銀行() XXX分行<br>
                         XXXX有限公司<br>
                         帳號：XXXXXXXXXXXXX<br>
                         完成匯款後煩請來電告知您的匯款帳號後5碼。謝謝您的訂購。</p>
-                    <div class="form-check">
-                        <label class="form-check-label">
-                            <input type="checkbox" checked="checked" class="form-check-input" name="AgreeCheckbox" id="AgreeCheckbox" value="agree">我同意以上須知
-                        </label>
-                    </div>
                 </div>
 
-                <button type="submit" class="btn btn-primary btn-lg btn-block glyphicon glyphicon-shopping-cart" aria-hidden="true"><span class="icon-shopping-bag" aria-hidden="true"> </span>購買</button>
+                <button type="submit" class="btn btn-primary btn-lg btn-block glyphicon-shopping-cart" aria-hidden="true"><span class="icon-shopping-bag" aria-hidden="true"> </span>購買</button>
             </form>
         </div>
     </div>
