@@ -13,6 +13,9 @@
 
                     {% for images in images %}
                         <img src="{{ images.image }}" style="width:100%">
+
+                        <a href="#orderlink" class="btn btn-outline-warning btn-lg pull-right" role="button">立刻購買</a>
+
                     {% endfor %}
 
                     <div class="embed-responsive embed-responsive-16by9">
@@ -23,8 +26,10 @@
                     <blockquote class="blockquote">
                         <p class="">{{ product.product_content }}</p>
                     </blockquote>
+
+                    <div id="orderlink"></div>
                 {% endfor %}
-            </div>
+            </div >
         </div>
     </div>
     {% include 'order.html' %}
