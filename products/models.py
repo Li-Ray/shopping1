@@ -41,7 +41,7 @@ class Order(models.Model):
     payment_way = models.CharField(max_length=30, verbose_name="付款方式")
     ip = models.CharField(max_length=30)
     note = models.TextField(blank=True, verbose_name="備註")
-    buyed_time = models.DateTimeField(auto_now_add=True)
+    buyed_time = models.DateTimeField(auto_now_add=True, verbose_name="訂購時間")
     state = models.CharField(max_length=30)
     shipped_time = models.DateTimeField(auto_now=True)
 
@@ -53,10 +53,10 @@ class Order(models.Model):
         verbose_name_plural = verbose_name
 
 class SlideShow(models.Model):
-    event＿name = models.CharField(max_length=30)
+    event_name = models.CharField(max_length=30)
     PageChoices = (('1', 'First Slide'),('2', 'Second Slide'),('3', 'Third Slide'))
     page = models.CharField(max_length=1,choices=PageChoices,default=1)
     image = models.ImageField(upload_to='static/images/slideshow')
 
     def __str__(self):
-        return self.event＿name
+        return self.event_name
