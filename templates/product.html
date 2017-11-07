@@ -1,7 +1,9 @@
 {% extends 'base.html' %}
 
-{% block header %}
-    {% include 'navbar.html' %}
+{% block title %}
+    {% for product in products %}
+        {{ product.name }} - {{ block.super }}
+    {% endfor %}
 {% endblock %}
 
 {% block content %}
