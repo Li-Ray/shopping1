@@ -4,10 +4,10 @@ from products.models import Product, ProductImages, Order, SlideShow
 
 @admin.register(Order)
 class OrderAdmin(admin.ModelAdmin):
-    list_display = ('buyer', 'cellphone', 'email', 'address', 'ip', 'amount', 'product', 'value', 'payment_way', 'state',)
+    list_display = ('buyer', 'cellphone', 'email', 'address', 'ip', 'amount', 'product', 'value', 'payment_way', 'note', 'state',)
     list_display_links = ('buyer',)
     search_fields = ('buyer', 'cellphone', 'state',)
-    list_filter = ('product',)
+    list_filter = ('product', 'state',)
     fieldsets = (
         (None, {'fields': ('note', 'state',)}),
         ('Advanced options', {
