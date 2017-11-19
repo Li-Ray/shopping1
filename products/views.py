@@ -3,19 +3,33 @@ from django.http import HttpResponse
 from products.models import Product, ProductImages, SlideShow , Order
 import time, secrets
 from django.views.decorators.csrf import csrf_protect
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 # Create your views here.
 def index(request):
+
     products = Product.objects.all()
+    paginator = Paginator(products, 20)  # Show 20 contacts per page
+    page = request.GET.get('page')
+    try:
+        products = paginator.page(page)
+    except PageNotAnInteger:
+        products = paginator.page(1)
+        # If page is not an integer, deliver first page.
+    except EmptyPage:
+        products = paginator.page(paginator.num_pages)
+        # If page is out of range, deliver last page of results.
+
     images = {}
     for i in products:
         image = ProductImages.objects.filter(product_id=i.id).first()
         images[image.product_id] = str(image.image)
+
     FirstSlide = SlideShow.objects.filter(page='1').last()
     SecondSlide = SlideShow.objects.filter(page='2').last()
     ThirdSlide = SlideShow.objects.filter(page='3').last()
 
-    return render(request, 'index.html', {'products': products, 'images': images, 'FirstSlide': FirstSlide, 'SecondSlide': SecondSlide, 'ThirdSlide': ThirdSlide })
+    return render(request, 'index.html', {'products': products, 'images': images, 'FirstSlide': FirstSlide, 'SecondSlide': SecondSlide, 'ThirdSlide': ThirdSlide, 'paginator': paginator})
 
 @csrf_protect
 def add_order(request, number):
