@@ -28,9 +28,9 @@ class ProductImagesAdmin(admin.ModelAdmin):
     list_filter = ('product',)
 
 @admin.register(SlideShow)
-class ProductImagesAdmin(admin.ModelAdmin):
+class SlideShowAdmin(admin.ModelAdmin):
     list_display = ('event_name', 'page', 'image',)
-    list_display_links = ('event_name',)
+    list_display_links = ('page',)
     list_filter = ('page',)
 
 # Register your models here.

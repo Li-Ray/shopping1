@@ -1,6 +1,6 @@
 <nav id="mainNav" class="navbar sticky-top navbar-expand-md navbar-light bg-light">
     <div class="container-fluid">
-        <h1 style="font-family: cwTeXYen"><a class="navbar-brand" href="{% url 'index' %}">
+        <h1 style="font-family:cwTeXYen"><a class="navbar-brand" href="{% url 'index' %}">
             <img src="/static/images/icon/CRAZYMAMA02.png" alt="CRAZYMAMA">
             瘋狂大媽</a></h1>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarMenu" aria-controls="navbarMenu" aria-expanded="true" aria-label="Toggle navigation">
@@ -13,13 +13,13 @@
                     <a class="nav-link text-uppercase text-expanded" href="{% url 'index' %}">Home</a>
                 </li>
                 <li class="nav-item dropdown px-md-2">
-                    <a class="nav-link dropdown-toggle disabled" id="dropdownLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" id="dropdownLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Product
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownLink">
-                        <a class="dropdown-item text-center" href="#item">Item1</a>
-                        <a class="dropdown-item text-center" href="#item">Item2</a>
-                        <a class="dropdown-item text-center" href="#item">Item3</a>
+                        <a class="dropdown-item text-center" style="font-family:cwTeXYen" href="{% url 'new_product' %}">最新商品</a>
+                        <a class="dropdown-item text-center" style="font-family:cwTeXYen" href="{% url 'all_product' %}">所有商品</a>
+                        <a class="dropdown-item text-center disabled" style="font-family:cwTeXYen" href="">特價商品</a>
                     </div>
                 </li>
             </ul>

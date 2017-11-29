@@ -42,8 +42,8 @@ class Order(models.Model):
     ip = models.CharField(max_length=30)
     note = models.TextField(blank=True, verbose_name="備註")
     buyed_time = models.DateTimeField(auto_now_add=True, verbose_name="訂購時間")
-    StateChoices = (('未處理', '未處理'), ('已出貨', '已出貨'), ('待確認', '待確認'), ('註銷', '註銷'))
-    state = models.CharField(max_length=30,choices=StateChoices,default='未處理', verbose_name="狀態")
+    StateChoices = (('未處理', '未處理'), ('已出貨', '已出貨'), ('待確認', '待確認'), ('收款完成', '收款完成'), ('註銷', '註銷'))
+    state = models.CharField(max_length=30,choices=StateChoices,default='未處理', verbose_name="訂單狀態")
     shipped_time = models.DateTimeField(auto_now=True)
 
     def __str__(self):

@@ -68,3 +68,34 @@ def product_detail(request, number):
     products = Product.objects.filter(product_number=number)
     images = ProductImages.objects.filter(product__product_number=number)
     return render(request, 'product.html', {'products': products, 'images': images, 'number':number })
+
+def new_product(request):
+
+    products = Product.objects.all().order_by('-id')[:20]
+    images = {}
+    for i in products:
+        image = ProductImages.objects.filter(product_id=i.id).first()
+        images[image.product_id] = str(image.image)
+
+    return render(request, 'new_product.html', {'products': products, 'images': images })
+
+def all_product(request):
+
+    products = Product.objects.all()
+    paginator = Paginator(products, 25)  # Show 25 contacts per page
+    page = request.GET.get('page')
+    try:
+        products = paginator.page(page)
+    except PageNotAnInteger:
+        products = paginator.page(1)
+        # If page is not an integer, deliver first page.
+    except EmptyPage:
+        products = paginator.page(paginator.num_pages)
+        # If page is out of range, deliver last page of results.
+
+    images = {}
+    for i in products:
+        image = ProductImages.objects.filter(product_id=i.id).first()
+        images[image.product_id] = str(image.image)
+
+    return render(request, 'new_product.html', {'products': products, 'images': images, 'paginator': paginator})
